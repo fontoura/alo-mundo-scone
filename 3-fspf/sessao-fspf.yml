@@ -1,0 +1,30 @@
+name: sessao-exemplo-fspf-$IDUNICO
+version: 0.3
+security:
+  attestation:
+    tolerate: [debug-mode, hyperthreading, outdated-tcb]
+    ignore_advisories: "*"
+services:
+  - name: alo-mundo
+    mrenclaves: [41f0117a3c62966b48ef6e2388b5fe7ff719b1f48abbf417e855fff0546a8e0d]
+    command: python3 /app/programa.py
+    image_name: alo-mundo
+    pwd: /
+    environment:
+      SCONE_MODE: hw
+      UM_SEGREDO: $$SCONE::segredo1$$
+    fspf_path: /fspf/volume.fspf
+    fspf_key: a5f438f9cb28c5f4b0033088e8d067ab29a96d49d33194419dcc0eff25a301e6
+    fspf_tag: 4ea8d181c18bcd12d3917c3a0f757556
+images:
+  - name: alo-mundo
+    injection_files:
+    - path: /etc/segredo.txt
+      content: $$SCONE::segredo2$$
+secrets:
+   - name: segredo1
+     kind: ascii
+     size: 16
+   - name: segredo2
+     kind: ascii
+     value: "isso eh um segredo"

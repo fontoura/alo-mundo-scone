@@ -1,0 +1,9 @@
+name: sessao-exemplo-$IDUNICO
+services:
+   - name: alo-mundo
+     mrenclaves: [41f0117a3c62966b48ef6e2388b5fe7ff719b1f48abbf417e855fff0546a8e0d]
+     command: python3 programa.py
+     pwd: /
+     environment:
+        SCONE_MODE: hw
+        VARIAVEL_SECRETA: conteudosecreto
