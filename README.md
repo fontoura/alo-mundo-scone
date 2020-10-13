@@ -179,7 +179,7 @@ FileNotFoundError: [Errno 2] No such file or directory: '/etc/segredo.txt'
 
 ```bash
 $ export SCONE_LAS_ADDR=172.17.0.1
-$ export SCONE_CONFIG_ID=sessao-exemplos-segredos-$IDUNICO/alo-mundo
+$ export SCONE_CONFIG_ID=sessao-exemplo-segredos-$IDUNICO/alo-mundo
 $ docker run -it --rm --device /dev/isgx \
                 -e SCONE_CAS_ADDR=$SCONE_CAS_ADDR \
                 -e SCONE_LAS_ADDR=$SCONE_LAS_ADDR \
